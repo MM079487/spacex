@@ -11,7 +11,7 @@ window.onload = function(){
         await fetch('https://api.spacexdata.com/v3/launches')
         .then(data => data.json())
         .then(d => {
-            num = d.length - 1
+            num = 106
             const data = d[num]
             console.log(data)
 
@@ -31,8 +31,6 @@ window.onload = function(){
                 const number = prompt('Please type flight Number', d.length - 1)
                 num = parseInt(number)
                 const data = d[num]
-                console.log(data)
-                console.log(num)
     
                 title.innerText=data.mission_name;
                 image.src = data.links.flickr_images[0]
