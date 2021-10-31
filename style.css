@@ -1,86 +1,60 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    background-color: black;
+html {
+    background-color: #121212;
 }
 
-#canvas{
+#box {
+    height: 90%;
+    width: 80%;
     position: absolute;
-    top: 56.2%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: cell;
+    box-shadow: 0 0 20px -5px black;
+    background-color: #181818;
 }
 
-#buttons {
+#title {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: 100% 100%;
+    height: 70%;
+    max-width: 70%;
+    border: 5px solid #404040;
+}
+
+#date {
+    margin-left: 1px;
     margin-top: 10px;
-    padding: 10px;
-    border: 2px solid white;
-    display: flex;
-    justify-content: space-evenly;
+    color: white;
+    font-size: 25px;
 }
 
-#clear {
-    background-color: white;
-    color: black;
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
+#rocket {
+    position: absolute;
+    top: 0%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 25px;
 }
 
-#red {
-    background-color: rgb(255, 0, 0);
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#blue {
-    background-color: rgb(0, 38, 255);
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#yellow {
-    background-color: rgb(255, 251, 0);
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#green {
-    background-color: rgb(30, 255, 0);
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#white {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#eraser {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    padding: 5px;
-    z-index: 2;
-}
-
-#strokeInput {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    width: 200px;
-    z-index: 2;
+#button {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
 }
