@@ -1,15 +1,26 @@
 <html>
     <head>
         <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/9982bffe41.js" crossorigin="anonymous"></script>
     </head>
 
-    <body>
+    <body onload="load()">
+        <div id="list">
+            <div id="listTop">
+                <p class="topNumber">Flight Number</p>
+                <p class="topName">Mission Name</p>
+                <p class="topTime">Time</p>
+            </div>
+            <p id="listContent"></p>
+        </div>
+
         <div id="box">
+            <a id="exit"><i class="far fa-times-circle" ></i></a>
             <p id="title"></p>
             <img id="image">
-            <p id="date"></p>
-            <p id="rocket">Falcon 9</p>
-            <button id="button">Search Flight</button>
+            <a id="wiki" target="_blank">Wikipedia</a>
+            <a id="webcast" target="_blank">Webcast</a>
+            <img id="patch">
         </div>
     </body>
     <script type ="text/javascript" src="/script.js"></script>

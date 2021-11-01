@@ -1,16 +1,27 @@
 html {
     background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #box {
     height: 90%;
     width: 80%;
-    position: absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 20px -5px black;
     background-color: #181818;
+    display: none;
+}
+
+#exit {
+    color: white;
+    position: absolute;
+    top: 30;
+    left: 97%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
 }
 
 #title {
@@ -32,23 +43,29 @@ html {
     background-size: 100% 100%;
     max-height: 47%;
     max-width: 70%;
-    border: 5px solid #404040;
 }
 
-#date {
-    margin-left: 1px;
-    margin-top: 10px;
+#wiki {
     color: white;
-    font-size: 25px;
-}
-
-#rocket {
     position: absolute;
-    top: 0%;
-    left: 90%;
+    top: 97%;
+    left: 5%;
     transform: translate(-50%, -50%);
+}
+
+#webcast {
     color: white;
-    font-size: 25px;
+    position: absolute;
+    top: 97%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+#patch {
+    margin-left: 20px;
+    margin-top: 20px;
+    max-height: 100px;
+    max-width: 100px;
 }
 
 #button {
@@ -57,4 +74,52 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
+}
+
+#list {
+    color: white;
+    font-size: 90%;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.listNumber {
+    display: flex;  
+    justify-content: space-between;
+    border: 2px solid rgb(160, 244, 255);
+    background-color: #404040;
+}
+
+#listName {
+    margin-top: 0;
+}
+
+#listDate {
+    margin-top: 0;
+}
+
+#listTop {
+    font-size: 200%;
+}
+
+.topNumber {
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.topName {
+    position: absolute;
+    top: 0%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+}
+
+.topTime {
+    position: absolute;
+    top: 0%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    width: 12%;
 }

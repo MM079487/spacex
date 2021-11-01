@@ -1,42 +1,96 @@
 var num;
 
-window.onload = function(){
+window.onload = function load(){
 
+    var listContent = document.querySelector('#listContent')
+    var box = document.querySelector('#box')
     var title = document.querySelector('#title')
     var image = document.querySelector('#image')
-    var button = document.querySelector('#button')
-    var date = document.querySelector('#date')
+    var exitButton = document.querySelector("#exit")
+    var wiki = document.querySelector("#wiki")
+    var webcast = document.querySelector("#webcast")
+    var patch = document.querySelector("#patch")
+    var txt = "";
 
-    async function getData(){
-        await fetch('https://api.spacexdata.com/v3/launches')
+    async function getList(){
+        await fetch('https://api.spacexdata.com/v4/launches')
         .then(data => data.json())
         .then(d => {
-            num = 106
-            const data = d[num]
-            console.log(data)
-
-            title.innerText=data.mission_name;
-            image.src = data.links.flickr_images[0]
-            date.innerText=data.launch_date_utc
+            d.forEach(formatList)
+            listContent.innerHTML = txt;
         })
         
     }
 
-    getData()
-    
-    async function getNumber() {
-        await fetch('https://api.spacexdata.com/v3/launches')
-        .then(data => data.json())
-        .then(d => {
-                const number = prompt('Please type flight Number', d.length - 1)
-                num = parseInt(number)
-                const data = d[num]
-    
-                title.innerText=data.mission_name;
-                image.src = data.links.flickr_images[0]
-                date.innerText=data.launch_date_utc
-            })
+    function formatList(value, index, array){
+        txt += `<h1 id="listNumber${index}" class="listNumber">${value.flight_number}<p id="listName">${value.name}</p> <p id="listDate">${timeConverter(value.date_unix)}</p></h1>` + "<br>"
     }
 
-    button.addEventListener('mousedown', getNumber)
+    getList()
+
+    async function getData(number){
+        await fetch('https://api.spacexdata.com/v4/launches')
+        .then(data => data.json())
+        .then(d => {
+            const data = d[number]
+
+            if(data.links.wikipedia == null){
+                wiki.style.display='none';
+            }
+
+            if(data.links.webcast == null){
+                webcast.style.display='none';
+            }
+
+            if(data.links.flickr.original[0] == null){
+                image.src='-';
+            }
+
+            if(data.links.patch.small == null){
+                patch.src='-';
+            }
+
+            box.style.display="block";
+            title.innerHTML=data.name;
+            image.src = data.links.flickr.original[0]
+            wiki.href=data.links.wikipedia
+            webcast.href=data.links.webcast
+            patch.src = data.links.patch.small
+        })
+        
+    }
+
+    window.onclick = e => {
+        if(e.target.id.includes('listNumber')){
+            var numb = e.target.id.match(/\d/g)
+            numb = numb.join("")
+            getData(numb)
+        }
+    }
+
+    function exit(){
+        box.style.display="none";
+    }
+
+    function timeConverter(UNIX_timestamp){
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        min = checkTime(min)
+        sec = checkTime(sec)
+        var time = date + '/' + month + '/' + year + ' ' + hour + ':' + min + ':' + sec ;
+        return time;
+    }
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+    }
+
+    exitButton.addEventListener("mousedown", exit)
 }   
