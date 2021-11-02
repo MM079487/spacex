@@ -1,3 +1,3 @@
 # spacex
- -LINK:
+LINK:
   https://spacex-search.netlify.app/
