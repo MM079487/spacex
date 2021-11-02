@@ -16,7 +16,7 @@ window.onload = function load(){
         await fetch('https://api.spacexdata.com/v4/launches')
         .then(data => data.json())
         .then(d => {
-            d.forEach(formatList)
+            d.reverse().forEach(formatList)
             listContent.innerHTML = txt;
         })
         
@@ -32,6 +32,7 @@ window.onload = function load(){
         await fetch('https://api.spacexdata.com/v4/launches')
         .then(data => data.json())
         .then(d => {
+            d.reverse()
             const data = d[number]
 
             if(data.links.wikipedia == null){
