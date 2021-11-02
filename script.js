@@ -42,12 +42,14 @@ window.onload = function load(){
                 webcast.style.display='none';
             }
 
-            if(data.links.flickr.original[0] == null){
-                image.src='-';
+            if(!data.links.flickr.original[0]){
+                image.removeAttribute('src')
+                image.alt="Image Not Found";
             }
 
             if(data.links.patch.small == null){
-                patch.src='-';
+                patch.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQysHIDmzqCkdLOCk-b5BZeqNJyQHjYt7BucxT_NidPZCNn72FQ9S-6knpuz86ggey-ArY&usqp=CAU';
+                patch.alt="Image Not Found";
             }
 
             box.style.display="block";
@@ -56,7 +58,6 @@ window.onload = function load(){
             wiki.href=data.links.wikipedia
             webcast.href=data.links.webcast
             patch.src = data.links.patch.small
-            console.log(data)
         })
         
     }
@@ -76,7 +77,7 @@ window.onload = function load(){
     function timeConverter(UNIX_timestamp){
         var a = new Date(UNIX_timestamp * 1000);
         var year = a.getFullYear();
-        var month = a.getMonth() + 1;
+        var month = a.getMonth();
         var date = a.getDate();
         var hour = a.getHours();
         var min = a.getMinutes();
