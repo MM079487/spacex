@@ -90,8 +90,14 @@ html {
 .listNumber {
     display: flex;  
     justify-content: space-between;
-    border: 2px solid rgb(160, 244, 255);
+    border: 2px solid rgb(184, 247, 255);
     background-color: #404040;
+    transition-duration: 0.4s;
+}
+
+.listNumber:hover{
+    background-color: rgb(165, 165, 165);
+    color: black;
 }
 
 #listName {
