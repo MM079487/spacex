@@ -23,7 +23,19 @@ window.onload = function load(){
     }
 
     function formatList(value, index, array){
-        txt += `<h1 id="listNumber${index}" class="listNumber">${value.flight_number}<p id="listName">${value.name}</p> <p id="listDate">${timeConverter(value.date_unix)}</p></h1>` + "<br>"
+        var success = "";
+        if(value.success == true){
+            console.log(`#listName${index} success:${value.success}`)
+            success="true"
+        }else if(value.success == false){
+            console.log(`#listName${index} success:${value.success}`)
+            success="false"
+        }else{
+            console.log(`#listName${index} success:${value.success}`)
+            success="coming"
+        }
+
+        txt += `<h1 id="listNumber${index}" class="listNumber">${value.flight_number}<p class="listName ${success}" id="listNumber${index}">${value.name}</p> <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p></h1>` + "<br>"
     }
 
     getList()
@@ -59,6 +71,8 @@ window.onload = function load(){
             wiki.href=data.links.wikipedia
             webcast.href=data.links.webcast
             patch.src = data.links.patch.small
+
+            console.log(data)
         })
         
     }

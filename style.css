@@ -72,14 +72,6 @@ html {
     color: white;
 }
 
-#button {
-    position: absolute;
-    top: 92%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-}
-
 #list {
     color: white;
     font-size: 90%;
@@ -102,11 +94,11 @@ html {
     border: 2px solid #A3CFCD;
 }
 
-#listName {
+.listName {
     margin-top: 0;
 }
 
-#listDate {
+.listDate {
     margin-top: 0;
 }
 
@@ -184,5 +176,17 @@ html {
 
 .social i:hover {
     opacity: 1;
+}
+
+.coming {
+    color: yellow;
+}
+
+.true{
+    color: rgb(153, 255, 0);
+}
+
+.false {
+    color: red;
 }
 
