@@ -38,7 +38,7 @@ window.onload = function load(){
             </div>
 
             <div id="listText">
-                <p class="listName ${success}" id="listNumber${index}">${value.name}</p>
+                <p class="listName ${success}" id="listName${index}">${value.name}</p>
                 <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p>
             </div>
 
