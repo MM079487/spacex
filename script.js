@@ -55,22 +55,17 @@ window.onload = function load(){
             d.reverse()
             const data = d[number]
 
-            if(data.links.wikipedia == null){
+            if(!data.links.wikipedia){
                 wiki.style.display='none';
             }
 
-            if(data.links.webcast == null){
+            if(!data.links.webcast){
                 webcast.style.display='none';
             }
 
             if(!data.links.flickr.original[0]){
                 image.removeAttribute('src')
                 image.alt="Image Not Found";
-            }
-
-            if(data.links.patch.small == null){
-                patch.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQysHIDmzqCkdLOCk-b5BZeqNJyQHjYt7BucxT_NidPZCNn72FQ9S-6knpuz86ggey-ArY&usqp=CAU';
-                patch.alt="Image Not Found";
             }
 
             box.style.display="block";
