@@ -84,12 +84,10 @@ window.onload = function load(){
     }
 
     window.onclick = e => {
-        console.log(e.target.id)
         if(e.target.id.includes('listName')){
             var numb = e.target.id.match(/\d/g)
             numb = numb.join("")
             getData(numb)
-            console.log("clicked")
         }
     }
 
