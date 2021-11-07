@@ -38,7 +38,7 @@ window.onload = function load(){
             </div>
 
             <div id="listText">
-                <p class="listName ${success}" id="listName${index}">${value.name}</p>
+                <p class="listName ${success}" id="listName ${index}">${value.name}</p>
                 <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p>
             </div>
 
@@ -84,10 +84,12 @@ window.onload = function load(){
     }
 
     window.onclick = e => {
-        if(e.target.id.includes('listNumber')){
+        console.log(e.target.id)
+        if(e.target.id.includes('listName')){
             var numb = e.target.id.match(/\d/g)
             numb = numb.join("")
             getData(numb)
+            console.log("clicked")
         }
     }
 
