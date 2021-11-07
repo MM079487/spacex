@@ -10,23 +10,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@900&family=Orbitron&family=Staatliches&display=swap" rel="stylesheet">
     </head>
 
-    <body onload="load()">
+    <body>
+        <header>
+            <p class="description" style="color:yellow">Yellow : Coming Soon</p>
+            <p class="description" style="color:greenyellow">Green : Success</p>
+            <p class="description" style="color:red"> Red : Failure</p>
+        </header>
         <div id="list">
-            <div id="listTop">
-                <p class="topNumber">Flight Number</p>
-                <p class="topName">Mission Name</p>
-                <p class="topTime">Time</p>
-            </div>
             <p id="listContent"></p>
         </div>
 
         <div id="box">
             <a id="exit"><i class="far fa-times-circle" ></i></a>
             <p id="title"></p>
-            <img id="image">
+            <img id="image" onerror='this.src = "https://img.whaleshares.io/wls-img/einstei1/d765e65f432e7e6f0d062616d19364ecdc5631da.png"'>
             <a id="wiki" target="_blank">Wikipedia</a>
             <a id="webcast" target="_blank">Webcast</a>
-            <img id="patch">
+            <img id="patch" onerror='this.src = "https://img.whaleshares.io/wls-img/einstei1/d765e65f432e7e6f0d062616d19364ecdc5631da.png"'>
         </div>
 
         <div id="footer-line"></div>

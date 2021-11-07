@@ -25,17 +25,25 @@ window.onload = function load(){
     function formatList(value, index, array){
         var success = "";
         if(value.success == true){
-            console.log(`#listName${index} success:${value.success}`)
             success="true"
         }else if(value.success == false){
-            console.log(`#listName${index} success:${value.success}`)
             success="false"
         }else{
-            console.log(`#listName${index} success:${value.success}`)
             success="coming"
         }
 
-        txt += `<h1 id="listNumber${index}" class="listNumber">${value.flight_number}<p class="listName ${success}" id="listNumber${index}">${value.name}</p> <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p></h1>` + "<br>"
+        txt += `<h1 id="listNumber${index}" class="listNumber">
+            <div id="listImage">
+                <img src="${value.links.patch.small}" onerror='this.src = "https://img.whaleshares.io/wls-img/einstei1/d765e65f432e7e6f0d062616d19364ecdc5631da.png"'/>
+            </div>
+
+            <div id="listText">
+                <p class="listName ${success}" id="listNumber${index}">${value.name}</p>
+                <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p>
+            </div>
+
+            <p id="flightNumber">#${value.flight_number}</p>
+        </h1>` + "<br>"
     }
 
     getList()
@@ -71,8 +79,6 @@ window.onload = function load(){
             wiki.href=data.links.wikipedia
             webcast.href=data.links.webcast
             patch.src = data.links.patch.small
-
-            console.log(data)
         })
         
     }

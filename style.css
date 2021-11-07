@@ -1,6 +1,27 @@
 html {
     background-color: #000000;
     font-family: 'Bebas Neue';
+    height: 100%;
+    width: 100%;
+}
+
+header{
+    background-color: rgb(29, 29, 29);
+    width: 100%;
+    font-size: 200%;
+    position:absolute;
+    top:0;
+    left:0;
+    color: white;
+}
+
+header p {
+    margin-left: 30px;
+}
+
+.description {
+    float: left;
+    margin-right: 20px;
 }
 
 #box {
@@ -23,6 +44,7 @@ html {
     left: 97%;
     transform: translate(-50%, -50%);
     font-size: 40px;
+    cursor: pointer;
 }
 
 #title {
@@ -75,22 +97,45 @@ html {
 #list {
     color: white;
     font-size: 90%;
-    width: 100%;
-    margin-top: 100px;
+    margin-left: 15px;
+    margin-top: 150px;
+}
+
+#listText {
+    margin-top: 25px;
+    margin-left: 120px;
+}
+
+#flightNumber {
+    text-align: right;
+    margin-top: -30;
+    margin-right: 10px;
+}
+
+#listImage img{
+    max-height: 80px;
+    max-width: 80px;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
 }
 
 .listNumber {
-    display: flex;  
-    justify-content: space-between;
     border: 2px solid #4B4A54;
     background-color: #2A272A;
     transition-duration: 0.4s;  
     font-size: 200%;
+    cursor: pointer;
+    height: 120px;
+    width: 600px;
+    line-height: 20px;
+    border-radius: 10px;
+    margin-top: -10px;
 }
 
 .listNumber:hover{
     background-color: #677381;
-    color: #2A272A;
     border: 2px solid #A3CFCD;
 }
 
@@ -100,31 +145,6 @@ html {
 
 .listDate {
     margin-top: 0;
-}
-
-#listTop {
-    font-size: 400%;
-}
-
-.topNumber {
-    position: absolute;
-    top: 0%;
-    left: 150;
-    transform: translate(-50%, -50%);
-}
-
-.topName {
-    position: absolute;
-    top: 0%;
-    left: 46.5%;
-    transform: translate(-50%, -50%);
-}
-
-.topTime {
-    position: absolute;
-    top: 0%;
-    left: 95%;
-    transform: translate(-50%, -50%);
 }
 
 #footer-line {
@@ -149,9 +169,9 @@ html {
 #api {
     opacity: 0.7;
     color: white;
-    transition-duration: 0.4s;
     text-decoration: none;
     font-size: 100%;
+    transition-duration: 0.4s;
 }
 
 #api:hover {
