@@ -1,6 +1,10 @@
 var num;
 
 window.onload = function load(){
+    setTimeout(() => {
+        document.getElementById('content').style.display="block";
+        document.getElementById('loader').style.display="none";
+    }, 3000);
 
     var listContent = document.querySelector('#listContent')
     var box = document.querySelector('#box')
