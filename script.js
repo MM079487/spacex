@@ -87,9 +87,16 @@ window.onload = function load(){
         
     }
 
+    var numb;
+
+    //I think this is the stupid way to fix that bug
     window.onclick = e => {
         if(e.target.parentNode.id.includes('listNumber') || e.target.parentNode.id.includes('listText')){
-            var numb = e.target.parentNode.id.match(/\d/g)
+            numb = e.target.parentNode.id.match(/\d/g)
+            numb = numb.join("")
+            getData(numb)
+        }else if(e.target.id.includes('listNumber')){
+            numb = e.target.id.match(/\d/g)
             numb = numb.join("")
             getData(numb)
         }
