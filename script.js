@@ -41,7 +41,7 @@ window.onload = function load(){
                 <img src="${value.links.patch.small}" onerror='this.src = "https://img.whaleshares.io/wls-img/einstei1/d765e65f432e7e6f0d062616d19364ecdc5631da.png"'/>
             </div>
 
-            <div id="listText">
+            <div id="listText${index}" class="listText">
                 <p class="listName ${success}" id="listName ${index}">${value.name}</p>
                 <p class="listDate" id="listDate${index}">${timeConverter(value.date_unix)}</p>
             </div>
@@ -88,8 +88,8 @@ window.onload = function load(){
     }
 
     window.onclick = e => {
-        if(e.target.id.includes('listName')){
-            var numb = e.target.id.match(/\d/g)
+        if(e.target.parentNode.id.includes('listNumber') || e.target.parentNode.id.includes('listText')){
+            var numb = e.target.parentNode.id.match(/\d/g)
             numb = numb.join("")
             getData(numb)
         }

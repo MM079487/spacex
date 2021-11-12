@@ -91,15 +91,14 @@ header p {
     box-shadow: 0 0 20px -5px black;
     background-color: #2A272A;
     display: none;
-    z-index: 2;
+    z-index: 1;
 }
 
 #exit {
     color: white;
     position: absolute;
-    top: 30;
-    left: 97%;
-    transform: translate(-50%, -50%);
+    top: 10;
+    right: 1%;
     font-size: 40px;
     cursor: pointer;
 }
@@ -160,7 +159,7 @@ header p {
     margin-top: 150px;
 }
 
-#listText {
+.listText {
     margin-top: 25px;
     margin-left: 120px;
 }
