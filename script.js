@@ -59,17 +59,22 @@ window.onload = function load(){
             d.reverse()
             const data = d[number]
 
-            if(!data.links.wikipedia){
+            wiki.style.display="block";
+            webcast.style.display='block';
+
+            if(data.links.wikipedia == null){
                 wiki.style.display='none';
             }
 
-            if(!data.links.webcast){
+            if(data.links.webcast  == null){
                 webcast.style.display='none';
             }
-
-            if(!data.links.flickr.original[0]){
-                image.removeAttribute('src')
-                image.alt="Image Not Found";
+            
+            image.style.display="none";
+            document.getElementById('imgLoader').style.display="";
+            image.onload = function () {
+                image.style.display="block";
+                document.getElementById('imgLoader').style.display="none";
             }
 
             box.style.display="block";

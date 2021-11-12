@@ -29,12 +29,12 @@ html {
 }
 
 @keyframes showAfterLoad {
-    from { opacity: 0; }
-    to{ opacity: 1; }
+    from { bottom:-100px; opacity: 0; }
+    to{ bottom:0; opacity: 1; }
 }
 @-webkit-keyframes showAfterLoad {
-    from { opacity: 0; }
-    to{ opacity: 1; }
+    from { bottom:-100px; opacity: 0; }
+    to{ bottom:0; opacity: 1; }
 }
 
 @-webkit-keyframes spin {
@@ -45,6 +45,21 @@ html {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#imgLoader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #677381;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
 header{
@@ -110,6 +125,9 @@ header p {
     max-width: 70%;
     color: white;
     font-size: 200%;
+    display: none;
+    animation-name: showAfterLoad;
+    animation-duration: 2s;
 }
 
 #wiki {
