@@ -115,7 +115,7 @@ window.onload = function load() {
         if (imgArray.length == 1) {
             return true;
         }else if(x >= imgArray.length - 1){
-            x = imgArray.length - 1
+            x = imgArray.length - 2
             alert("There have no more pictures!")
         } else if (imgArray.length >= 2) {
             image.src = imgArray[x]
@@ -134,7 +134,7 @@ window.onload = function load() {
         if(x < 0){
             x = 0
         }
-
+        
         if(x <= 0){
             alert("This is the first picture")
             return true;
