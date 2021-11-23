@@ -128,6 +128,24 @@ header p {
     animation-duration: 2s;
 }
 
+#next-button {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#previous-button {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
 #wiki {
     color: white;
     position: absolute;
