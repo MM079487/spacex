@@ -16,6 +16,7 @@ window.onload = function load() {
     var patch = document.querySelector("#patch")
     var next_button = document.querySelector("#next-button")
     var previous_button = document.querySelector("#previous-button")
+    var html = document.body.parentNode
     var txt = "";
 
     async function getList() {
@@ -149,6 +150,12 @@ window.onload = function load() {
     }
 
     var numb;
+    
+    html.addEventListener('click', function(event) {
+        if(event.target.id != 'box' && event.target.id != 'image' && event.target.id != 'patch' && event.target.id != 'title' && event.target.id != "wiki" && event.target.id != "webcast" && event.target.id != "next-button" && event.target.id != "previous-button" && event.target.id != "imgLoader"){
+            box.style.display="none";
+        }
+    })
 
     //I think this is the stupid way to fix that bug
     window.onclick = e => {
