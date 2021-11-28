@@ -94,7 +94,7 @@ header p {
     z-index: 1;
 }
 
-#exit {
+#exit i{
     color: white;
     position: absolute;
     top: 10;
@@ -108,7 +108,6 @@ header p {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 300%;
-    width: 100%;
     text-align: center;
     color: white;
 }
