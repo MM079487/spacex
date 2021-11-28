@@ -194,4 +194,11 @@ window.onload = function load() {
     }
 
     exitButton.addEventListener("mousedown", exit)
+    html.onkeydown = e => {
+        if(e.keyCode == 27){
+            if(box.style.display == "block"){
+                exit()
+            }
+        }
+    }
 }
