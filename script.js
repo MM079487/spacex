@@ -127,6 +127,12 @@ window.onload = function load() {
                 table_mass_kg.innerHTML = data.mass_kg + "kg"
                 table_orbit.innerHTML = data.orbit
                 table_nationalities.innerHTML = data.nationalities[0]
+                console.log(data)
+
+                if(data.mass_kg == null){
+                    table_mass_kg.innerHTML = "NaN"
+                }
+
             })
     }
 
@@ -246,7 +252,7 @@ window.onload = function load() {
             txtValue = div.textContent || div.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 section[i].style.display = "";
-            } else {
+            }else {
                 section[i].style.display = "none";
             }
         }
