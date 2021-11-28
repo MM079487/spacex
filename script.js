@@ -17,6 +17,16 @@ window.onload = function load() {
     var next_button = document.querySelector("#next-button")
     var previous_button = document.querySelector("#previous-button")
     var html = document.body.parentNode
+    var details = document.querySelector('#details')
+    var table = document.querySelector('#table')
+
+    //table stuff ↓
+    var table_type = document.querySelector("#table-type")
+    var table_customers = document.querySelector("#table-customers")
+    var table_manufacturers = document.querySelector("#table-manufacturers")
+    var table_mass_kg = document.querySelector("#table-mass-kg")
+    var table_orbit = document.querySelector("#table-orbit")
+    var table_nationalities = document.querySelector("#table-nationalities")
     var txt = "";
 
     async function getList() {
@@ -98,8 +108,23 @@ window.onload = function load() {
                 webcast.href = data.links.webcast
                 patch.src = data.links.patch.small
                 imgArray = data.links.flickr.original
+
+                getTableData(data.payloads[0])
             })
 
+    }
+
+    async function getTableData(id){
+        await fetch(`https://api.spacexdata.com/v4/payloads/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                table_type.innerHTML = data.type
+                table_customers.innerHTML = data.customers[0]
+                table_manufacturers.innerHTML = data.manufacturers[0]
+                table_mass_kg.innerHTML = data.mass_kg + "kg"
+                table_orbit.innerHTML = data.orbit
+                table_nationalities.innerHTML = data.nationalities[0]
+            })
     }
 
     next_button.addEventListener('mousedown', () => {
@@ -150,12 +175,6 @@ window.onload = function load() {
     }
 
     var numb;
-    
-    html.addEventListener('click', function(event) {
-        if(event.target.id != 'box' && event.target.id != 'image' && event.target.id != 'patch' && event.target.id != 'title' && event.target.id != "wiki" && event.target.id != "webcast" && event.target.id != "next-button" && event.target.id != "previous-button" && event.target.id != "imgLoader"){
-            box.style.display="none";
-        }
-    })
 
     //I think this is the stupid way to fix that bug
     window.onclick = e => {
@@ -201,4 +220,12 @@ window.onload = function load() {
             }
         }
     }
+    
+    details.addEventListener('mouseover', () => {
+        table.style.display="block";
+    })
+
+    details.addEventListener('mouseout', () => {
+        table.style.display="none";
+    })
 }

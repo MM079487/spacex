@@ -82,8 +82,8 @@ header p {
 }
 
 #box {
-    height: 90%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     position:fixed;
     top: 50%;
     left: 50%;
@@ -152,6 +152,7 @@ header p {
     top: 97%;
     left: 5%;
     transform: translate(-50%, -50%);
+    font-size: 2vw;
 }
 
 #webcast {
@@ -160,6 +161,17 @@ header p {
     top: 97%;
     left: 15%;
     transform: translate(-50%, -50%);
+    font-size: 2vw;
+}
+
+#details {
+    color: white;
+    position: absolute;
+    top: 97%;
+    left:25%;
+    transform: translate(-50%, -50%);
+    font-size: 2vw;
+    text-decoration: underline white;
 }
 
 #patch {
@@ -285,3 +297,20 @@ header p {
     color: red;
 }
 
+table , th, tr {
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #131113;
+    z-index: 3;
+    letter-spacing:1.5px
+}
+
+#table {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
