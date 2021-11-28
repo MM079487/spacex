@@ -19,6 +19,7 @@ window.onload = function load() {
     var html = document.body.parentNode
     var details = document.querySelector('#details')
     var table = document.querySelector('#table')
+    var scrollTop = document.querySelector('#scrollTop')
 
     //table stuff ↓
     var table_type = document.querySelector("#table-type")
@@ -28,6 +29,8 @@ window.onload = function load() {
     var table_orbit = document.querySelector("#table-orbit")
     var table_nationalities = document.querySelector("#table-nationalities")
     var txt = "";
+
+    var search_input = document.querySelector("#input")
 
     async function getList() {
         await fetch('https://api.spacexdata.com/v4/launches')
@@ -49,7 +52,7 @@ window.onload = function load() {
             success = "coming"
         }
 
-        txt += `<h1 id="listNumber${index}" class="listNumber">
+        txt += `<section id="listNumber${index}" class="listNumber">
             <div id="listImage">
                 <img src="${value.links.patch.small}" onerror='this.src = "https://img.whaleshares.io/wls-img/einstei1/d765e65f432e7e6f0d062616d19364ecdc5631da.png"'/>
             </div>
@@ -60,7 +63,7 @@ window.onload = function load() {
             </div>
 
             <p id="flightNumber">#${value.flight_number}</p>
-        </h1>` + "<br>"
+        </section>`
     }
 
     getList()
@@ -228,4 +231,46 @@ window.onload = function load() {
     details.addEventListener('mouseout', () => {
         table.style.display="none";
     })
+
+    search_input.addEventListener("keyup", () => {
+        filterList()
+    })
+
+    function filterList() {
+        var input, filter, section, div, i, txtValue;
+        input = document.getElementById("input");
+        filter = input.value.toUpperCase();
+        section = listContent.getElementsByTagName("section");
+        for (i = 0; i < section.length; i++) {
+            div = section[i].getElementsByTagName("div")[1];
+            txtValue = div.textContent || div.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                section[i].style.display = "";
+            } else {
+                section[i].style.display = "none";
+            }
+        }
+    }
+
+    window.onscroll = function() {
+        checkScroll()
+    }
+
+    scrollTop.addEventListener('click', () => {
+        scrollToTop()
+    })
+
+
+    function checkScroll() {
+        if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+          scrollTop.style.display = "block";
+        } else {
+          scrollTop.style.display = "none";
+        }
+      }
+
+    function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
 }
